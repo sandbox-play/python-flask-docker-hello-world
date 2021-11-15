@@ -1,8 +1,14 @@
 from flask import Flask
+from elasticapm.contrib.flask import ElasticAPM
 import os
 
 app = Flask(__name__)
 
+server_url = 'http://apm-server.logging:8200'
+service_name = 'DemoFlask'
+environment = 'dev'
+
+apm = ElasticAPM(app, server_url=server_url, service_name=service_name, environment=environment)
 @app.route("/")
 def hello():
     return "Flask inside Docker!!"
