@@ -9,6 +9,7 @@ service_name = 'DemoFlask'
 environment = 'dev'
 
 apm = ElasticAPM(app, server_url=server_url, service_name=service_name, environment=environment)
+
 @app.route("/")
 def hello():
     return "Flask inside Docker!!"
